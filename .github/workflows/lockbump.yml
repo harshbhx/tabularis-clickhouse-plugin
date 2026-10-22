@@ -10,7 +10,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo install cargo-audit --locked
       - run: cargo audit || true
-      - run: cargo update -p rustls -p rustls-webpki
+      - run: cargo update -p rustls -p rustls-webpki -p webpki-roots
       - run: git diff --stat; git diff Cargo.lock | head -80
       - run: cargo audit
       - run: cargo build --locked && cargo test --locked
